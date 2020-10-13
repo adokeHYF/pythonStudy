@@ -1,4 +1,5 @@
 import random
+from functools import reduce
 
 names = ["jack", "tom", "zhangsan"]
 for name in names:
@@ -58,6 +59,18 @@ for i, value in enumerate(['lim', 'james', 'matt']):
 2 matt
 """
 
+# map 循环
+map_list = [1, 2, 3]
+map_list = list(map(lambda x: x+1, map_list))
+# [2, 3, 4]
 
+# reduce
+reduce_list = [1, 2, 3]
+map_list = reduce(lambda x, y: x+y, reduce_list)
+# 6
+
+# filter
+filter_list = [1, 2, 3]
+filter_list = list(filter(lambda x: x != 3, filter_list))
 
 
