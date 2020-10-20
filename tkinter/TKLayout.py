@@ -23,12 +23,19 @@ t_btn2 = tk.Button(toolBar, image=pixelVirtual, width=80, height=20, text="save 
 t_btn2.pack(side=tk.RIGHT, padx=2, pady=2)
 toolBar.pack(side=tk.TOP, fill=tk.X)
 
-status_bar = tk.Frame(window, relief=tk.SUNKEN, bg="green", height=50).pack(side=tk.BOTTOM, fill=tk.X)
+# status_bar = tk.Frame(window, relief=tk.SUNKEN, bg="green", height=50).pack(side=tk.BOTTOM, fill=tk.X)
 
 # 设置内容
-slide_bar_left = tk.Frame(window, relief=tk.SUNKEN, bg="red", width=200).pack(fill=tk.Y, side=tk.LEFT)
-container = tk.Frame(window, bd=1, relief=tk.SUNKEN, bg="pink", width=966).pack(fill=tk.BOTH, expand=tk.YES, side=tk.LEFT)
-slide_bar_right = tk.Frame(window, relief=tk.SUNKEN, bg="blue", width=200).pack(fill=tk.Y, side=tk.RIGHT)
+# slide_bar_left = tk.Frame(window, relief=tk.SUNKEN, bg="red", width=200).pack(fill=tk.Y, side=tk.LEFT, expand=tk.YES)
+container = tk.Frame(window, bd=1, relief=tk.SUNKEN, width=966)
+
+# slide_bar_right = tk.Frame(window, relief=tk.SUNKEN, bg="blue", width=200).pack(fill=tk.Y, side=tk.RIGHT)
+
+
+t_btn3 = tk.Button(container, image=pixelVirtual, width=100, height=100, text="container")
+t_btn3.pack(side=tk.LEFT)
+container.pack(fill=tk.BOTH, expand=tk.YES, side=tk.LEFT)
+
 
 
 # 协议绑定事件
