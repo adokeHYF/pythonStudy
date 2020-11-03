@@ -74,3 +74,8 @@ filter_list = [1, 2, 3]
 filter_list = list(filter(lambda x: x != 3, filter_list))
 
 
+# for 循环 生成list
+photo_list = [f"photo_{i}" for i in range(10)]
+print(f"photoList: {photo_list}")
+
+
