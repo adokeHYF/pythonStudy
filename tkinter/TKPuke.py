@@ -23,6 +23,7 @@ class Application(tk.Frame):
         for idx, puke in enumerate(self.pukes):
             puke.place(x=10+idx*40, y=50)
 
+        tk.Label(self.master, text="test", width=10, height=10, bg="red").pack()
         # 所有的Label 添加事件处理
         self.pukes[0].bind_class("Label", "<Button-1>", self.chuopai)
 
@@ -35,6 +36,9 @@ class Application(tk.Frame):
             event.widget.place(y=30)
         else:
             event.widget.place(y=50)
+
+        print(f"鼠标相当于父元素的位置 x={event.x}, y={event.y}")
+        print(f"鼠标相当于屏幕元素的位置 x={event.x_root}, y={event.y_root}")
 
 if __name__ == "__main__":
     window = tk.Tk()
