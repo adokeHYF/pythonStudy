@@ -1,0 +1,42 @@
+[
+  {
+    "name": "xxxx1",
+    "children": [
+      {
+        "keywords": [
+          "wait",
+          "disappear",
+          "computer vision",
+          "vision",
+          "AI"
+        ],
+        "name": "Wait Vanish",
+        "description": "This activity allows the bot to wait for an element to vanish.",
+        "args": {
+          "automagica_id": {
+            "default": "",
+            "description": "The element ID provided by the recorder",
+            "type": "automagica_id",
+            "optional": True
+          },
+          "delay": {
+            "default": 1,
+            "description": "Delay before waiting for vanish in seconds",
+            "type": "int",
+            "optional": True
+          },
+          "timeout": {
+            "default": 30,
+            "description": "Maximum time to wait for an element in seconds",
+            "type": "int",
+            "optional": True
+          }
+        },
+        "return": "",
+        "class": "",
+        "icon": "las la-eye",
+        "key": "automagica.activities.wait_vanish"
+      }
+    ]
+  }
+]

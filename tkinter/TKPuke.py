@@ -40,6 +40,7 @@ class Application(tk.Frame):
         print(f"鼠标相当于父元素的位置 x={event.x}, y={event.y}")
         print(f"鼠标相当于屏幕元素的位置 x={event.x_root}, y={event.y_root}")
 
+
 if __name__ == "__main__":
     window = tk.Tk()
     app = Application(master=window)
