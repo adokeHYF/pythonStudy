@@ -34,6 +34,8 @@ def worker(*params):
 
 
 worker(*p1)
+
+
 #  worker(*[1, 2, 3])  //[1, 2, 3]
 
 # 函数的关键词函数
@@ -44,3 +46,22 @@ def boss(name, **kwargs):
 
 
 boss("lim", age=12, gender="boy")
+
+
+def login(username, password):
+    for i in range(3):
+        if username == "xx" and password == "123":
+            print("登陆成功")
+            break
+        else:
+            print("登陆失败")
+            username = input("输入用户名: ")
+            password = input("输入密码: ")
+    else:
+        print("账户锁定")
+
+
+if __name__ == "__main__":
+    username = input("输入用户名: ")
+    password = input("输入密码: ")
+    login(username, password)
