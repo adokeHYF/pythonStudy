@@ -35,7 +35,7 @@ class Accordion(Frame):
         self.columnconfigure(0, weight=1)
 
     def append_chords(self, chords=[]):
-        '''pass a [list] of Chords to the Accordion object'''
+        """pass a [list] of Chords to the Accordion object"""
 
         self.update_idletasks()
         row = 0
