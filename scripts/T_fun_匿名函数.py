@@ -26,9 +26,25 @@ def reduce_map():
     print(result)
 
 
+# 递归函数
+def sum(n):
+    if n <= 1:
+        return n
+    else:
+        return n + sum(n-1)
+
+
+# filter()
+def filter_map():
+     result = filter(lambda x:x>10, (10, 20, 1, 2,))
+     print(list(result))
+
+
 if __name__ == "__main__":
     map_fun()
     reduce_map()
+    filter_map()
+    print(f"sum_result: {sum(100)}")
 
 
 
