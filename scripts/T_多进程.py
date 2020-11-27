@@ -7,6 +7,16 @@ import time
 import platform
 
 __auth__ = "abeil"
+"""
+系统里面可以有多个进程(一个进程的子进程数取决于你CPU 的核数, 如果CPU 是8核, 则一个进程最多同时运行8个子进程),一个进程里面有多个线程, 一个线程里面多个协程
+
+windows
+process = Process(target=函数, name=进程的名称, args=())
+对象的调用方法:
+process.start() 启动进程
+process.run() 只是启动了任务没有启动进程
+process.terminate() 终止进程
+"""
 
 
 def run_proc_windows(name):
@@ -14,7 +24,7 @@ def run_proc_windows(name):
 
 
 def long_time_task(name):
-    print('Run task %s (%s)...' % (name, os.getpid()))
+    print('Run task %s (%s)...父进程: %s' % (name, os.getpid(), os.getppid()))
     start = time.time()
     time.sleep(random.random() * 3)
     end = time.time()
@@ -41,12 +51,6 @@ if __name__ == "__main__":
         p.close()
         p.join()
         print('所有进程运行完毕.')
-
-        print('$ nslookup www.python.org')
-        r = subprocess.call(['nslookup', 'www.python.org'])
-        print('Exit code:', r)
-
-
 
     else:
         pid = os.fork()
