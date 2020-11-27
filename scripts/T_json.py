@@ -26,6 +26,5 @@ def read_json_file():
         print(dict_f)
 
 
-
 if __name__ == "__main__":
     read_json_file()
