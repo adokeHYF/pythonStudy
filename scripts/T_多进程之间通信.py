@@ -1,23 +1,15 @@
 import random
 from functools import reduce
 import os
-from multiprocessing import Process, Pool, cpu_count
+from multiprocessing import Process, Pool, cpu_count, Queue
 import subprocess
 import time
 import platform
 
 __auth__ = "abeil"
 """
-Pool 是个进程池子, 依靠于主进程存在, 如果主进程结束, 无论线程池里面有多少个线程未完成或者正在完成,
-都会结束, 非阻塞式.
-
-进程池特点:
-    设置进程数量
-    进程的复用
-    非阻塞式
-
-非阻塞式:全部添加到队列中,立刻返回,并没有等待其他进程执行完毕后才会返回,但是回调函数等待任务完成后才会调用
-阻塞式: 添加一个执行一个任务，如果一个任务不结束另一个任务就进不来
+队列：先进先出（FIFO）
+栈：后进先出
 """
 
 
@@ -38,9 +30,10 @@ def callback_fun(n):
 
 
 if __name__ == "__main__":
-    print(f'Process ({os.getpid()}) start...')
     system = platform.system()
-    print(f"system: {system} \ncpu 核数: {cpu_count()}")
+    q = Queue(5)
+    q.put(1)
+
     if system == "Windows":
         # 创建一个子进程
         p = Process(target=run_proc_windows, args=('test',))

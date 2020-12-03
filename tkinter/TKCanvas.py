@@ -26,12 +26,10 @@ class AutomagicaTk(tk.Tk):
         self.canvas.create_rectangle(
             30, 30, 200, 200,
             outline='red',
-            stipple='question',
             fill="red",
             width=5,
             activedash=True,
             dash=(5,)
-
         )
 
 
