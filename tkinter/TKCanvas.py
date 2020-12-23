@@ -20,17 +20,20 @@ class AutomagicaTk(tk.Tk):
         self.canvas = None
         self._layout()
 
-        self.canvas.bind("<ButtonPress-1>", self.move_start)
-        self.canvas.bind("<B1-Motion>", self.move_move)
+        # self.canvas.bind("<ButtonPress-1>", self.move_start)
+        # self.canvas.bind("<B1-Motion>", self.move_move)
 
     def _layout(self):
         self.create_canvas()
-        self.create_arc()
+        # self.create_arc()
 
     def create_canvas(self):
         self.canvas = tk.Canvas(self, background='white', bd=0)
         self.canvas.pack(fill=tk.BOTH, expand=tk.YES)
-        self.create_line()
+        # # 画线
+        # self.create_line()
+        # 创建图片
+        self.create_image()
 
     def create_range(self):
         self.canvas.create_rectangle(
@@ -46,29 +49,11 @@ class AutomagicaTk(tk.Tk):
     def create_line(self):
         for i in range(0, 1050, 50):
             # 竖线
-            self.canvas.create_line(
-                i,
-                0,
-                i,
-                1000,
-                dash=(4, 2),
-                tag="grid_line",
-                fill="red",
-                tags="background",
-            )
+            self.canvas.create_line(i, 0, i, 1000, dash=(4, 2), tag="grid_line", fill="red", tags="background",)
 
         for i in range(0, 800, 50):
             # 横线
-            self.canvas.create_line(
-                0,
-                i,
-                1000,
-                i,
-                dash=(4, 2),
-                tag="grid_line",
-                fill="green",
-                tags="background",
-            )
+            self.canvas.create_line(0, i, 1000, i, dash=(4, 2), tag="grid_line", fill="green", tags="background", )
 
     def create_arc(self):
         self.canvas.create_rectangle(100, 100, 200, 200)
@@ -78,15 +63,15 @@ class AutomagicaTk(tk.Tk):
         # # 左半圆
         self.canvas.create_arc(50, 100, 150, 200, start=90, extent=180)
 
-
     def create_image(self):
+        """
+        tk canvas 中要插入图片必须先生成图片后，将该图片附在一个python CG 系统不会自动回收的变量上，不然系统会将图片自动回收，不会在canvas 中显示
+        """
         img = Image.open(f"../icons/puke1.jpg")
-        self.canvas.create_image(
-            0,
-            0,
-            image=ImageTk.PhotoImage(img),
-            anchor=tk.NW
-        )
+        self.image = ImageTk.PhotoImage(img)
+        self.canvas.create_image(0, 0, anchor='nw', image=self.image)
+        print(self.__class__.__name__)
+
 
     def move_start(self, event):
         self.canvas.scan_mark(event.x, event.y)
@@ -96,6 +81,7 @@ class AutomagicaTk(tk.Tk):
 
 
 if __name__ == "__main__":
+
     root = AutomagicaTk()
     root.mainloop()
 
